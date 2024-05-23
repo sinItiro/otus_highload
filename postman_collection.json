@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "9e03c41d-09b0-4dae-935e-1795bab4d013",
+		"name": "OTUS network",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21237684",
+		"_collection_link": "https://crimson-capsule-459653.postman.co/workspace/gateway~2b6d2879-95a5-4197-bc06-539712725757/collection/21237684-9e03c41d-09b0-4dae-935e-1795bab4d013?action=share&source=collection_link&creator=21237684"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"first_name\": \"Имя\",\n  \"second_name\": \"Фамилия\",\n  \"birthdate\": \"2024-05-22\",\n  \"biography\": \"Хобби, интересы и т.п.\",\n  \"city\": \"Москва\",\n  \"password\": \"Секретная строка\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/user/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"b631079e-08d4-47e2-ae21-224229e567cc\",\n  \"password\": \"Секретная строка\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiLQmNC80Y8iLCJpYXQiOjE3MTY0MTY0NjUsImV4cCI6MTcxNjU2MDQ2NX0.8DBlfLFcwK-vDRj69-SIzh2d5irf7HkDSYMGH2xBynY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8080/user/get/b631079e-08d4-47e2-ae21-224229e567cc",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"get",
+						"b631079e-08d4-47e2-ae21-224229e567cc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

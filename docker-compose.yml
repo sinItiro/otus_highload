@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "otus"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5435:5432"
+  otus:
+    image: otus-network:latest
+    environment:
+      POSTGRES_DB: "otus"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_HOST: "postgres"
+      POSTGRES_PORT: 5432
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
