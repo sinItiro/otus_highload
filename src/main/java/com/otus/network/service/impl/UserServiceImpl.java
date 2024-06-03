@@ -20,6 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -101,6 +102,13 @@ public class UserServiceImpl implements UserService {
                 .roles(Role.ROLE_USER.name())
                 .build();
         return jwtService.generateToken(user);
+    }
+
+    @Override
+    public List<User> findByFilter(String firstName, String lastName) {
+        return userRepository.findByFilter(firstName, lastName).stream()
+                .sorted(Comparator.comparing(User::getId))
+                .collect(Collectors.toList());
     }
 
     @Override

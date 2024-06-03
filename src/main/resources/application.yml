@@ -1,4 +1,7 @@
 spring:
+  mvc:
+    async:
+      request-timeout: -1
   application:
     name: NETWORK_OTUS
 #  liquibase:

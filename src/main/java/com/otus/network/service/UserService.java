@@ -15,5 +15,5 @@ public interface UserService extends UserDetailsService {
     UserDetailsService userDetailsService();
     User getCurrentUser();
     String register(UserRegisterPostRequest dto);
-
+    List<User> findByFilter(String firstName, String lastName);
 }

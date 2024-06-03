@@ -10,7 +10,9 @@ public interface UserRepository {
 
     Optional<UserEntity> findById(String email);
     String save(UserEntity entity);
+    void saveBatch(UserEntity entity);
     List<User> findAll();
+    List<User> findByFilter(String firstName, String lastName);
     Optional<User> getById(String id);
     boolean existsById(String id);
 }
